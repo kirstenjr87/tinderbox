@@ -10,9 +10,11 @@ sudo apt-get upgrade -y
 sudo apt-get install -y build-essential curl git
 echo "----------Finished provisioning defaults----------"
 
-echo "----------Downloading TinderBox----------"
-git clone https://github.com/crockpotveggies/tinderbox.git
-echo "----------Finished downloading TinderBox----------"
+#echo "----------Downloading TinderBox----------"
+#git clone https://github.com/mondora/tinderbox.git
+#echo "----------Finished downloading TinderBox----------"
+
+cp -R /vagrant /home/vagrant/tinderbox
 
 __BOOTSTRAP__
 

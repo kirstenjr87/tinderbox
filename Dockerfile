@@ -8,6 +8,7 @@ RUN apt-get -y install software-properties-common && \
   add-apt-repository -y ppa:webupd8team/java && \
   apt-get update && \
   apt-get install -y zip unzip && \
+  apt-get install -y curl && \
   apt-get install -y oracle-java7-installer && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk7-installer
