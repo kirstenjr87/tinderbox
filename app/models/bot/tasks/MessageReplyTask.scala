@@ -2,7 +2,7 @@ package models.bot.tasks
 
 import akka.actor._
 import models.Notification
-import models.bot.tasks.message.{FunMessages, MessageTree, MessageUtil}
+import models.bot.tasks.message.{RecruitmentMessages, MessageTree, MessageUtil}
 import play.api.Logger
 import scala.util.Random
 import scala.collection.JavaConversions._
@@ -55,7 +55,7 @@ class MessageReplyTask(val xAuthToken: String, val tinderBot: ActorRef, val matc
           // the conversation is empty, send an opener
           case None =>
             if(m.messages.size==0) {
-              val randomOpener = FunMessages.messages(Random.nextInt(FunMessages.messages.size)).value.replace("{name}", m.person.map(_.name).getOrElse(""))
+              val randomOpener = RecruitmentMessages.messages(Random.nextInt(RecruitmentMessages.messages.size)).value.replace("{name}", m.person.map(_.name).getOrElse(""))
               new TinderApi(Some(xAuthToken)).sendMessage(m._id, randomOpener).map { result =>
                 result match {
                   case Left(e) =>
@@ -82,7 +82,7 @@ class MessageReplyTask(val xAuthToken: String, val tinderBot: ActorRef, val matc
           // there is a distinct conversation tree
           case Some(treeRoot) =>
             val theTreeRoot = treeRoot.replace(m.person.map(_.name).getOrElse(""),"{name}")
-            FunMessages.messages.find(_.value == theTreeRoot) match {
+            RecruitmentMessages.messages.find(_.value == theTreeRoot) match {
               case None =>
                 createStopGap(m, true)
                 Logger.info("Created stop gap because there was no distinct conversation tree.")

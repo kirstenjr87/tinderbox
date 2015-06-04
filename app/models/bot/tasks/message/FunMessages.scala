@@ -3,7 +3,7 @@ package models.bot.tasks.message
 /**
  * A list of fun, pre-defined message trees.
  */
-object FunMessages {
+object RecruitmentMessages {
 
   def messages = List(
     MessageTree(
