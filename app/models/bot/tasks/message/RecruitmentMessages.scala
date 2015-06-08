@@ -15,13 +15,13 @@ object RescruitmentMessages {
 //set 1
 def hi=MessageTree( value= "Hi!", right=howareyou, left=None);
 def howareyou=MessageTree( value= "How are you?", right=imfine, left=sosorry);
-def imfine=Some(MessageTree( value= "I'm fine too thanks!") right=wherefrom, left=None);
+def imfine=Some(MessageTree( value= "I'm fine too thanks!", right=wherefrom, left=None));
 def sosorry=Some(MessageTree( value= "I'm sorry, how come?", right=None, left=None));
 def wherefrom=MessageTree( value= "Where are you from?", right=niceplace, left=None);
 def niceplace=Some(MessageTree( value= "Nice! I've never been there...what's it like?", right=interesting, left=None));
 def interesting=MessageTree( value= "Haha, interesting", right=None, left=None);
 def imfrom=MessageTree( value= "I'm from {location} ", right=None, left=None)
-
+//continued by alison :D
 
   //def occhioAzzurro=Occhio(colore="azzrurro");
 
